@@ -138,8 +138,37 @@ def getFix(a:String,b:String) : String ={
 
 val df_Final = df.withColumn("Action",getFix(df.col("MRP"),df.col("Deletion")))
 
+============================================SCALA UDEMY================================================================================================
 
+package com.gopi.practice.scala
 
+object Practice extends App {
+val codeBlock = {
+  val a=5
+  val b=10
+  if(a<b) "Small" else "big"
+}
+  print(codeBlock)
+}
+
+//Recursive function is suggested instead of using while/for loop
+
+def recursiveFunc(a:String,b:Int):String={
+    if(b==1) a
+    else a+recursiveFunc(a,b-1)
+  }
+  println(recursiveFunc("Gopi",5))
+
+//Factorial function for bigger value since normal factorial function will through stackoverflow error
+
+  def factorial(n:Int):BigInt={
+    def factHelper(x:Int,accumulator:BigInt):BigInt={
+      if(x<=1) accumulator
+      else factHelper(x-1,x*accumulator)
+    }
+    factHelper(n,1)
+  }
+  println(factorial(10000))
 
 
 
