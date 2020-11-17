@@ -171,8 +171,21 @@ def recursiveFunc(a:String,b:Int):String={
   println(factorial(10000))
 
 
+//use map and flat maps for nested loops
+  val numbers = List(1,2,3,4,5,6,7)
+  val chars = List('a','b','c','d','e')
+  val colours =List("black","white")
+  val combinations = numbers.flatMap(n=>chars.map(c=>""+c+n))
+  val combines = numbers.flatMap(n=>chars.flatMap(c=>colours.map(co=>""+c+n+co)))
 
-	
+//for - comprehension will do the same as above code
+  val forCombinations = for {
+    n <- numbers if n%2==0
+    c <- chars
+    co <- colours
+  }yield ""+c+n+co                      //List(a2black,a2white,a4black,b4white..................e6white)
+
+
 
 
 
